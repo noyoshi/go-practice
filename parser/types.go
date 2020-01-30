@@ -60,3 +60,8 @@ type OpenWeatherResponse struct {
 	Name       string
 	COD        float64
 }
+
+// OtherStruct is example
+type OtherStruct struct {
+	Reply reply
+}

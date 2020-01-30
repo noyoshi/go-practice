@@ -51,12 +51,8 @@ func Runme() int {
 	openWeatherResponse := parseJSON(body)
 
 	/* Example using interfaces and methods */
-	var a APIParser
-	a = openWeatherResponse
-	fmt.Println(a.GetJSONResponse())
-
-	// fmt.Println(openWeatherResponse.)
-	// fmt.Println(openWeatherResponse)
+	// Turns out that the OpenWeatherResponse has the method attached to it?
+	fmt.Println(openWeatherResponse.GetJSONResponse())
 
 	return 0
 }
