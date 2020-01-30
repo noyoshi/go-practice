@@ -63,5 +63,5 @@ type OpenWeatherResponse struct {
 
 // OtherStruct is example
 type OtherStruct struct {
-	Reply reply
+	s string
 }

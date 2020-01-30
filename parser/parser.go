@@ -52,7 +52,21 @@ func Runme() int {
 
 	/* Example using interfaces and methods */
 	// Turns out that the OpenWeatherResponse has the method attached to it?
-	fmt.Println(openWeatherResponse.GetJSONResponse())
 
+	// The APIParser interface can hold any type that implements it
+	// the type that implements it is the OpenWeatherResponse one in this case
+	var apiParser APIParser
+	apiParser = openWeatherResponse
+	fmt.Println(apiParser.GetJSONResponse())
+
+	// Other struct ALSO implements the interface GetJSONResponse - therefore we can call it?
+	// pretty weird?
+	otherStruct := OtherStruct{"hello"}
+	fmt.Println(otherStruct.GetJSONResponse())
+
+	// I think we can also do this, since OtherStruct also implements the interface for
+	// APIParser
+	apiParser = otherStruct
+	fmt.Println(apiParser.GetJSONResponse())
 	return 0
 }

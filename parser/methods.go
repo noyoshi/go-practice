@@ -22,11 +22,5 @@ func (o OpenWeatherResponse) GetJSONResponse() string {
 
 // GetJSONResponse does...
 func (o OtherStruct) GetJSONResponse() string {
-	out, err := json.Marshal(o)
-
-	if err != nil {
-		panic(err)
-	}
-
-	return string(out)
+	return "did it work?"
 }
