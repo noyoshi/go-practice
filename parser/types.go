@@ -46,7 +46,7 @@ type sys struct {
 
 // OpenWeatherResponse ?
 type OpenWeatherResponse struct {
-	// Coord      coord
+	Coord      coord
 	Weather    []weather
 	Base       string
 	Main       main

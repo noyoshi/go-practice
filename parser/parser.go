@@ -50,6 +50,13 @@ func Runme() int {
 	fmt.Println(string(body))
 	openWeatherResponse := parseJSON(body)
 
-	fmt.Println(openWeatherResponse)
+	/* Example using interfaces and methods */
+	var a APIParser
+	a = openWeatherResponse
+	fmt.Println(a.GetJSONResponse())
+
+	// fmt.Println(openWeatherResponse.)
+	// fmt.Println(openWeatherResponse)
+
 	return 0
 }
