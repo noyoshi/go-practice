@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# pass docker image to run as $1
+# make sure that $WEATHER_KEY is set
+
+if [ $1 ]; 
+then 
+    if [ $WEATHER_KEY ]; 
+    then
+        docker run -e WEATHER_KEY=$WEATHER_KEY -i -t $1
+    else
+        echo "Please go to https://openweathermap.org/api and get an api key"
+        echo "and set it to shell variable WEATHER_KEY"
+    fi
+else
+    echo "Please pass docker image id as first CLI argument"
+fi

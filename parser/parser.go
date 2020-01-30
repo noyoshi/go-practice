@@ -18,6 +18,13 @@ func parseJSON(body []byte) OpenWeatherResponse {
 	return openWeatherResponse
 }
 
+func errorCheck(e error, msg string) {
+	if e != nil {
+		fmt.Println(msg)
+		fmt.Println(e.Error())
+	}
+}
+
 // Runme is a Dank function, I can't believe my linter wants comments
 func Runme() int {
 	apiKey := os.Getenv("WEATHER_KEY")
@@ -33,17 +40,12 @@ func Runme() int {
 	fmt.Println(url)
 	resp, err := http.Get(url)
 
-	if err != nil {
-		fmt.Println("error in api call")
-		fmt.Println(err.Error())
-	}
+	errorCheck(err, "error in get request")
 
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
 
-	if err != nil {
-		fmt.Println("error in reading body")
-	}
+	errorCheck(err, "error in reading request body")
 
 	fmt.Println(string(body))
 	openWeatherResponse := parseJSON(body)
