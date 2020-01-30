@@ -27,7 +27,8 @@ func Runme() {
 	}
 
 	fmt.Println(apiKey)
-	url := apiEndpoint + "98105,us&APPID=" + apiKey
+	zipcode := 98105
+	url := fmt.Sprintf("%s%d,us&APPID=%s", apiEndpoint, zipcode, apiKey)
 	fmt.Println(url)
 	resp, err := http.Get(url)
 

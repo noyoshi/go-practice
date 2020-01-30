@@ -27,7 +27,7 @@ type main struct {
 
 type wind struct {
 	Speed float64
-	Def   float64
+	Deg   float64
 }
 
 type clouds struct {
