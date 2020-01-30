@@ -1,6 +1,7 @@
 package parser
 
-// TODO we need to mirror the api json response with some kind of data type object
+// It appears that marshalling tries its best even if some of the structs
+// are missing or wrong
 type reply struct {
 	Name string
 }
@@ -11,8 +12,9 @@ type coord struct {
 }
 
 type weather struct {
-	ID          string
+	ID          float64
 	Description string
+	Main        string
 	Icon        string
 }
 
@@ -44,7 +46,7 @@ type sys struct {
 
 // OpenWeatherResponse ?
 type OpenWeatherResponse struct {
-	Coord      coord
+	// Coord      coord
 	Weather    []weather
 	Base       string
 	Main       main

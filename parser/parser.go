@@ -19,11 +19,12 @@ func parseJSON(body []byte) OpenWeatherResponse {
 }
 
 // Runme is a Dank function, I can't believe my linter wants comments
-func Runme() {
+func Runme() int {
 	apiKey := os.Getenv("WEATHER_KEY")
 
 	if apiKey == "" {
-		panic("no api key found for WEATHER_KEY")
+		fmt.Println("no key found")
+		return -1
 	}
 
 	fmt.Println(apiKey)
@@ -48,4 +49,5 @@ func Runme() {
 	openWeatherResponse := parseJSON(body)
 
 	fmt.Println(openWeatherResponse)
+	return 0
 }
