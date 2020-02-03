@@ -1,6 +1,6 @@
 package main
 
-import "weatherparser/parser"
+import "github.com/noyoshi/weatherparser/parser"
 
 func main() {
 	parser.Runme()
