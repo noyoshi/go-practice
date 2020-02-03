@@ -1,3 +1,5 @@
+![build](https://travis-ci.org/noyoshi/weatherparser.svg?branch=master)
+
 To run in docker, make sure you have 
 `WEATHER_KEY` set in your enviornment to a valid API key from openweathermap.org, and make sure you have build the docker image. 
 
