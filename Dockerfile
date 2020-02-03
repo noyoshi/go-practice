@@ -47,11 +47,9 @@ ENV GOPATH /go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 
-ADD . "$GOPATH/src/weatherparser"
-WORKDIR "$GOPATH/src/weatherparser"
-RUN go get weatherparser/parser
-RUN go install weatherparser/parser
-RUN go get weatherparser/cmd/weatherparser
-RUN go install weatherparser/cmd/weatherparser
+ADD . "$GOPATH/src/github.com/noyoshi/weatherparser"
+WORKDIR "$GOPATH/src/github.com/noyoshi/weatherparser"
+RUN go get github.com/noyoshi/weatherparser/parser
+RUN go install github.com/noyoshi/weatherparser/
 
 CMD ["/go/bin/weatherparser"]
