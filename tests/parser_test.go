@@ -2,7 +2,7 @@ package tests
 
 import (
 	"testing"
-	"weather_parser/parser"
+	"weatherparser/parser"
 )
 
 // Run this using `go test` inside the test directory, or specify that directory as a cli arg

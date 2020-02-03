@@ -1,0 +1,7 @@
+language: go
+
+go: 
+  - master
+
+scripts:
+  - go test ./tests
