@@ -49,7 +49,13 @@ RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 
 ADD . "$GOPATH/src/github.com/noyoshi/weatherparser"
 WORKDIR "$GOPATH/src/github.com/noyoshi/weatherparser"
-RUN go get github.com/noyoshi/weatherparser/parser
-RUN go install github.com/noyoshi/weatherparser/
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
 
-CMD ["/go/bin/weatherparser"]
+# RUN go get github.com/noyoshi/weatherparser/parser
+# RUN go install github.com/noyoshi/weatherparser/
+
+FROM alpine:latest
+WORKDIR /root/
+COPY --from=0 /go/src/github.com/noyoshi/weatherparser .
+
+CMD ["./app"]
